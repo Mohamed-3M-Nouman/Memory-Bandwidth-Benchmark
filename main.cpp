@@ -2,25 +2,27 @@
 #include <vector>
 #include <chrono>
 #include <cstring>
-#include <iomanip> 
+#include <iomanip>
+
+using namespace std;
 
 int main() {
     const size_t SIZE = 1024ULL * 1024ULL * 1024ULL;
 
-    std::vector<char> source(SIZE, 'A');
-    std::vector<char> destination(SIZE, 'B');
+    vector<char> source(SIZE, 'A');
+    vector<char> destination(SIZE, 'B');
 
-    auto start_time = std::chrono::high_resolution_clock::now();
+    auto start_time = chrono::high_resolution_clock::now();
 
-    std::memcpy(destination.data(), source.data(), SIZE);
+    memcpy(destination.data(), source.data(), SIZE);
 
-    auto end_time = std::chrono::high_resolution_clock::now();
+    auto end_time = chrono::high_resolution_clock::now();
     
-    std::chrono::duration<double> elapsed_seconds = end_time - start_time;
+    chrono::duration<double> elapsed_seconds = end_time - start_time;
 
     double bandwidth = 1.0 / elapsed_seconds.count();
 
-    std::cout << "> " << std::fixed << std::setprecision(4) << bandwidth << " G/B\n";
+    cout << "> " << fixed << setprecision(6) << bandwidth << " G/B\n";
 
     return 0;
 }

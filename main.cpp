@@ -2,6 +2,7 @@
 #include <vector>
 #include <chrono>
 #include <cstring>
+#include <iomanip> 
 
 int main() {
     const size_t SIZE = 1024ULL * 1024ULL * 1024ULL;
@@ -19,7 +20,7 @@ int main() {
 
     double bandwidth = 1.0 / elapsed_seconds.count();
 
-    std::cout << "> " << static_cast<int>(bandwidth) << " G/B\n";
+    std::cout << "> " << std::fixed << std::setprecision(4) << bandwidth << " G/B\n";
 
     return 0;
 }

@@ -20,9 +20,9 @@ int main() {
     
     chrono::duration<double> elapsed_seconds = end_time - start_time;
 
-    double bandwidth = 1.0 / elapsed_seconds.count();
+    double bandwidth = (SIZE / 1e9) / elapsed_seconds.count();
 
-    cout << "> " << fixed << setprecision(6) << bandwidth << " G/B\n";
+    cout << "> " << fixed << setprecision(2) << bandwidth << " G/B\n";
 
     return 0;
 }
